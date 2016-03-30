@@ -1,0 +1,67 @@
+<script>
+    jQuery(document).ready(function() {
+
+        jQuery('#date').datetimepicker({
+            format: 'Y-m-d h:i:s',
+            hours12: true,
+            step: 15
+       });
+
+        jQuery('#date2').datetimepicker({
+            format: 'Y-m-d h:i:s',
+            hours12: true,
+            step: 15
+
+        });
+
+        jQuery('#date3').datetimepicker({
+            format: 'Y-m-d h:i:s',
+            hours12: true,
+            step: 15
+
+        });
+
+        jQuery('#date4').datetimepicker({
+            format: 'Y-m-d h:i:s',
+            hours12: true,
+            step: 15
+
+        });
+
+        jQuery('#dateOnly').datepicker({
+            format: 'Y-m-d'
+        });
+
+    });
+
+    jQuery(".numeric").on("keypress keyup blur",function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+
+    jQuery(".alphabetic").on("keypress keyup blur",function (event) {
+        $(this).val($(this).val().replace(/[^a-zA-Z\s]+$/, ""));
+        if ((event.which < 65 || event.which > 90) && (event.which < 97 || event.which > 122)) {
+            event.preventDefault();
+        }
+    });
+
+    jQuery(".alphaNumeric").on("keypress keyup blur",function (event) {
+        $(this).val($(this).val().replace(/[^a-zA-Z\d\s]+$/, ""));
+        if ((event.which < 65 || event.which > 90) && (event.which < 97 || event.which > 122)) {
+            if ((event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        }
+    });
+
+    jQuery(".decimals").on("keypress keyup blur",function (event) {
+        //this.value = this.value.replace(/[^0-9\.]/g,'');
+        $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+</script>
